@@ -48,7 +48,10 @@ def update_theta(a,m,theta,j,x,y):   # 计算更新theta值，输入参数：步
     for i in range(m):    # 分别计算所有累加项的值，存入列表
         minors.append(((theta[1]*x.iloc[i][1]+theta[0])-y[i])*x.iloc[i][j])
     minors = sum(minors)
-    return theta[j]-a/m*(minors+theta[j])
+    if j != 0:
+        return theta[j]-a/m*(minors+theta[j])
+    else:
+        return theta[j]-a/m*minors
 
 data = pd.read_csv('ex1data1.txt',names=['population','profit'])
 
