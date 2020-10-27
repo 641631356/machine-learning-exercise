@@ -59,7 +59,7 @@ def cost(m,theta,data):  # 计算损失函数值，输入参数有：样本数�
         else:
             result.append(-np.log(1-h))
     result = sum(result)
-    return -result/m+1/(2*m)*((np.array(theta)**2).sum())
+    return -result/m+1/(2*m)*((np.array(theta[1:])**2).sum())
 
 def update_theta(a,m,theta,j,x,y):  # 更新theta值，输入参数：步长，样本数，theta所有值的列表，需要更新的theta下标，所有特征项的数据，所有标签项的数据
     result = []
