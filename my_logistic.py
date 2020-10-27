@@ -68,7 +68,7 @@ def update_theta(a,m,theta,j,x,y):  # 更新theta值，输入参数：步长，�
         h = sigmoid(a)
         result.append((h-y[i])*x.iloc[i,j])
     result = sum(result)
-        if j != 0:
+    if j != 0:
         return theta[j]-a/m*(result+theta[j])
     else:
         return theta[j]-a/m*result
