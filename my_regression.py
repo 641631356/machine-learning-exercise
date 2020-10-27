@@ -41,7 +41,7 @@ def cost(m,theta,data):  # 计算损失函数，输入参数：样本数，theta
     for i in range(m): # 分别计算每一个累加项，存入列表
         result.append(((theta[1]*x[i]+theta[0])-y[i])**2)
     minors = sum(result)
-    return minors/(2*m)+1/(2*m)*((np.array(theta)**2).sum())
+    return minors/(2*m)+1/(2*m)*((np.array(theta[1:])**2).sum())
 
 def update_theta(a,m,theta,j,x,y):   # 计算更新theta值，输入参数：步长，样本数，theta所有值的列表，要更新的theta下标，所有特征数据，所有标签数据
     minors = []
